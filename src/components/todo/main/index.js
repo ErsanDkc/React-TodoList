@@ -7,9 +7,11 @@ function Main( {addTodo} ) {
         
   //   })
 
-
-  const deletetodo = (e) => {
-    return e.parentElement.parentElement.remove()
+const checkedTodo = (e) => {
+	e.target.parentElement.parentElement.classList.toggle("completed")
+}
+  const deleteTodo = (e) => {
+	e.target.parentElement.remove()
   }
   return (
     <section className='main'>
@@ -21,11 +23,11 @@ function Main( {addTodo} ) {
       <ul className='todo-list'>
         {
           addTodo.map((todo,i) => 
-          <li className='compledted' key={i}>
+          <li key={i}>
             <div className="view">
-					    <input className="toggle" type="checkbox" />
+					    <input onClick={checkedTodo}   className="toggle" type="checkbox" />
 					    <label>{todo.todo}</label>
-					    <button onClick={deletetodo} className="destroy"></button>
+					    <button onClick={deleteTodo}  className="destroy"></button>
 				    </div>
           </li>)
         }
