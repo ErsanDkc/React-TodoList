@@ -1,11 +1,7 @@
 import React from 'react'
 
 function Main( {addTodo} ) {
-  // deleteItem.forEach(function(x) {
-  //   x.addEventListener("click", function(){
-  //       x.parentElement.remove()
-        
-  //   })
+  
 
 const checkedTodo = (e) => {
 	e.target.parentElement.parentElement.classList.toggle("completed")
