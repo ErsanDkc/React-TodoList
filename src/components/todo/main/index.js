@@ -29,7 +29,7 @@ const completedTodo = (e) => {
       <ul className='todo-list'>
         {
           addTodo.map((todo,i) => 
-          <li key={i}>
+          <li key={i} className={todo.completed ? "completed" : ""}>
             <div className="view">
 					    <input onClick={completedTodo}   className="toggle" type="checkbox" />
 					    <label >{todo.todo}</label>

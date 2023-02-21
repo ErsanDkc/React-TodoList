@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 function Header( {addTodosMain, addTodo} ) {
 
   
 
-  const [inputText, setinputText] = useState({todo :""})
+  const [inputText, setinputText] = useState({todo :"", completed: false})
   const onChangeinput = (e) => {
     
     setinputText({...inputText, [e.target.name] : e.target.value})
@@ -23,14 +23,14 @@ function Header( {addTodosMain, addTodo} ) {
 
   return (
     <div>
-      <section className="todoapp">
-	      <header className="header">
-		      <h1>todos</h1>
+      
+	      <header className="header"> <br />
+		      <h1>Todos</h1>
 		      <form onSubmit={formSubmit}>
-			      <input name='todo' value={inputText.todo}   onChange={onChangeinput} className="new-todo" placeholder="What needs to be done?" autoFocus />
+			      <input name='todo' value={inputText.todo}   onChange={onChangeinput} className="new-todo" placeholder="Please Enter todo" autoFocus />
 		      </form>
 	      </header>
-      </section>
+      
     </div>
   )
 }

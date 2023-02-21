@@ -8,7 +8,7 @@ function Todo() {
     const [addTodo, setaddTodo] = useState([])
   return (
     <div>
-        <Header addTodo={addTodo} addTodosMain={setaddTodo} />
+        <Header addTodo={addTodo} addTodosMain={setaddTodo} /> 
         <Main addTodo={addTodo} />
         <Footer />
     </div>
