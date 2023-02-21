@@ -1,13 +1,23 @@
 import React from 'react'
 
+
 function Main( {addTodo} ) {
+	
   
 
-const checkedTodo = (e) => {
+const completedTodo = (e) => {
 	e.target.parentElement.parentElement.classList.toggle("completed")
 }
   const deleteTodo = (e) => {
 	e.target.parentElement.remove()
+  }
+  const deleteCompletedTodo = () => {
+	const completeLi = document.querySelectorAll(".completed")
+	completeLi.forEach((e) => {
+		e.remove()
+	})
+	
+	
   }
   return (
     <section className='main'>
@@ -21,17 +31,18 @@ const checkedTodo = (e) => {
           addTodo.map((todo,i) => 
           <li key={i}>
             <div className="view">
-					    <input onClick={checkedTodo}   className="toggle" type="checkbox" />
-					    <label>{todo.todo}</label>
+					    <input onClick={completedTodo}   className="toggle" type="checkbox" />
+					    <label >{todo.todo}</label>
 					    <button onClick={deleteTodo}  className="destroy"></button>
 				    </div>
           </li>)
         }
+		
       </ul>
 
       <footer className="footer">
 		    <span className="todo-count">
-			    <strong>2</strong>
+			    <strong>0</strong>
 			      items left
 		      </span>
 
@@ -47,7 +58,7 @@ const checkedTodo = (e) => {
 			    </li>
 		    </ul>
 
-		    <button className="clear-completed">
+		    <button onClick={deleteCompletedTodo} className="clear-completed">
 			      Clear completed
 		    </button>
 	    </footer>
