@@ -7,12 +7,12 @@ import "./style.css"
 function Todo() {
     const [todos, setTodos] = useState([{
       id:1,
-      todo:"asdsad",
+      todo:"Doing exercise",
       completed: true
     },
     {
       id:2,
-      todo:"qweqwe",
+      todo:"Read newspaper",
       completed: false
     }])
     console.log(todos)
