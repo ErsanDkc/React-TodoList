@@ -64,7 +64,7 @@ function Main({ todos, setTodos }) {
 
       <footer className="footer">
         <span className="todo-count">
-          <strong>0</strong>
+          <strong>{todos.length} </strong>
           items left
         </span>
 
