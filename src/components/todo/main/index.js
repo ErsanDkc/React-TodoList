@@ -1,45 +1,37 @@
-import {useState} from "react";
+import { useState } from "react";
 
 function Main({ todos, setTodos }) {
+  const [filter, setFilter] = useState("All");
 
-	const [filter, setFilter] = useState("All")
-  
-	
-	const completedTodo = (id) => {
-    setTodos(todos.map((item) => 
-	item.id === id ? {...item, completed: !item.completed} : item))
+  const completedTodo = (id) => {
+    setTodos(
+      todos.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
+    );
   };
 
   const deleteTodo = (id) => {
-	setTodos(
-		todos.filter((item) => 
-		item.id !== id)
-	)
-  }
-  
-  const allTodoDelete = () => setTodos([])
-  const activeClick = () => setFilter("Active")
-  
-  const all = () => setFilter("All")
+    setTodos(todos.filter((item) => item.id !== id));
+  };
 
-  const completedClick = () => setFilter("Completed")
-  
-  
+  const allTodoDelete = () => setTodos([]);
+  const activeClick = () => setFilter("Active");
 
-//   const deleteCompletedTodo = () => {
-//     const completeLi = document.querySelectorAll(".completed");
-//     completeLi.forEach((e) => {
-//       e.remove();
-//     });
-//   };
-  const filteredTodos = filter === "All" ? todos : todos.filter((item) => {
-	if ( filter === "Active" ) {
-		return item.completed === false
-	}
-	else if (filter === "Completed") {
-		return item.completed === true
-	}
-  } )
+  const all = () => setFilter("All");
+
+  const completedClick = () => setFilter("Completed");
+
+  const filteredTodos =
+    filter === "All"
+      ? todos
+      : todos.filter((item) => {
+          if (filter === "Active") {
+            return item.completed === false;
+          } else if (filter === "Completed") {
+            return item.completed === true;
+          }
+        });
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" />
@@ -56,7 +48,10 @@ function Main({ todos, setTodos }) {
                 type="checkbox"
               />
               <label>{todo.todo}</label>
-              <button onClick={() => deleteTodo(todo.id)} className="destroy"></button>
+              <button
+                onClick={() => deleteTodo(todo.id)}
+                className="destroy"
+              ></button>
             </div>
           </li>
         ))}
@@ -75,10 +70,14 @@ function Main({ todos, setTodos }) {
             </a>
           </li>
           <li>
-            <a onClick={activeClick} href="#/">Active</a>
+            <a onClick={activeClick} href="#/">
+              Active
+            </a>
           </li>
           <li>
-            <a onClick={completedClick} href="#/">Completed</a>
+            <a onClick={completedClick} href="#/">
+              Completed
+            </a>
           </li>
         </ul>
 
