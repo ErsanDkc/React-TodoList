@@ -17,20 +17,21 @@ function Main({ todos, setTodos }) {
 	)
   }
   
+  const allTodoDelete = () => setTodos([])
   const activeClick = () => setFilter("Active")
   
   const all = () => setFilter("All")
 
   const completedClick = () => setFilter("Completed")
   
+  
 
-
-  const deleteCompletedTodo = () => {
-    const completeLi = document.querySelectorAll(".completed");
-    completeLi.forEach((e) => {
-      e.remove();
-    });
-  };
+//   const deleteCompletedTodo = () => {
+//     const completeLi = document.querySelectorAll(".completed");
+//     completeLi.forEach((e) => {
+//       e.remove();
+//     });
+//   };
   const filteredTodos = filter === "All" ? todos : todos.filter((item) => {
 	if ( filter === "Active" ) {
 		return item.completed === false
@@ -69,7 +70,7 @@ function Main({ todos, setTodos }) {
 
         <ul className="filters">
           <li>
-            <a onClick={all} href="#/" className="selected">
+            <a onClick={all} href="#/" className="">
               All
             </a>
           </li>
@@ -81,7 +82,7 @@ function Main({ todos, setTodos }) {
           </li>
         </ul>
 
-        <button onClick={deleteCompletedTodo} className="clear-completed">
+        <button onClick={allTodoDelete} className="clear-completed">
           Clear completed
         </button>
       </footer>
