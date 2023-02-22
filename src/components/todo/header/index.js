@@ -1,38 +1,41 @@
-import {useState} from 'react'
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-function Header( {addTodosMain, addTodo} ) {
-
-  
-
-  const [inputText, setinputText] = useState({todo :"", completed: false})
+function Header({ setTodos, todos }) {
+  const [inputText, setinputText] = useState("");
   const onChangeinput = (e) => {
-    
-    setinputText({...inputText, [e.target.name] : e.target.value})
-  }
+    setinputText(e.target.value);
+  };
 
   const formSubmit = (e) => {
-    console.log(e)
-    e.preventDefault()
-    if(inputText.todo === "") {
-      return alert("You have to fill correctly each input area!")
+    console.log(e);
+    e.preventDefault();
+    if (inputText === "") {
+      return alert("You have to fill correctly each input area!");
     }
-    addTodosMain([...addTodo, inputText])
-    setinputText({todo: ""})
-
-  }
+    setTodos([...todos, { id: uuidv4(), todo: inputText, completed: false }]);
+    setinputText("");
+  };
 
   return (
     <div>
-      
-	      <header className="header"> <br />
-		      <h1>Todos</h1>
-		      <form onSubmit={formSubmit}>
-			      <input name='todo' value={inputText.todo}   onChange={onChangeinput} className="new-todo" placeholder="Please Enter todo" autoFocus />
-		      </form>
-	      </header>
-      
+      <header className="header">
+        {" "}
+        <br />
+        <h1>Todos</h1>
+        <form onSubmit={formSubmit}>
+          <input
+            name="todo"
+            value={inputText}
+            onChange={onChangeinput}
+            className="new-todo"
+            placeholder="Please Enter todo"
+            autoFocus
+          />
+        </form>
+      </header>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
