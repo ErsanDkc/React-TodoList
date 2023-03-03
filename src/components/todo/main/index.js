@@ -13,14 +13,22 @@ function Main({ todos, setTodos }) {
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((item) => item.id !== id));
+    
   };
-
+  
   const allTodoDelete = () => setTodos([]);
   const activeClick = () => setFilter("Active");
 
-  const all = () => setFilter("All");
+  const all = () => setFilter("All");    
 
   const completedClick = () => setFilter("Completed");
+
+  function allTodoCompleted() {
+    const allChecked = todos.every((item) => item.completed);
+    setTodos(todos.map((item) => ({ ...item, completed: !allChecked })));
+  }
+  
+  
 
   const filteredTodos =
     filter === "All"
@@ -34,8 +42,8 @@ function Main({ todos, setTodos }) {
         });
   return (
     <section className="main">
-      <input className="toggle-all" type="checkbox" />
-      <label htmlFor="toggle-all">Mark all as complete</label>
+      <input className="toggle-all" type="checkbox"  />
+      <label htmlFor="toggle-all" onClick={allTodoCompleted} >Mark all as complete</label>
 
       <ul className="todo-list">
         {filteredTodos.map((todo) => (
@@ -48,6 +56,7 @@ function Main({ todos, setTodos }) {
                 type="checkbox"
               />
               <label>{todo.todo}</label>
+              
               <button
                 onClick={() => deleteTodo(todo.id)}
                 className="destroy"

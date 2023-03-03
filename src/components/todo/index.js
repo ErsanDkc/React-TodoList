@@ -5,16 +5,8 @@ import Footer from './footer'
 
 
 function Todo() {
-    const [todos, setTodos] = useState([{
-      id:1,
-      todo:"Doing exercise",
-      completed: true
-    },
-    {
-      id:2,
-      todo:"Read newspaper",
-      completed: false
-    }])
+    const [todos, setTodos] = useState([])
+    
     
   return (
     <div>

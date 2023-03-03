@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+
 function Header({ setTodos, todos }) {
   const [inputText, setinputText] = useState("");
   const onChangeinput = (e) => {
@@ -8,7 +9,7 @@ function Header({ setTodos, todos }) {
   };
 
   const formSubmit = (e) => {
-    console.log(e);
+    
     e.preventDefault();
     if (inputText === "") {
       return alert("You have to fill correctly each input area!");
@@ -37,5 +38,6 @@ function Header({ setTodos, todos }) {
     </div>
   );
 }
+
 
 export default Header;

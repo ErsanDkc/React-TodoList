@@ -237,7 +237,30 @@ input {
 	color: #d9d9d9;
 	text-decoration: line-through;
 }
+.todo-list li .eedit:hover {
+	color: #20dd58;
+}
 
+.todo-list li .eedit:after {
+	content: 'e';
+}
+.todo-list li:hover .eedit {
+	display: block;
+}
+.eedit {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 80px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+	transition: color 0.2s ease-out;
+}
 .todo-list li .destroy {
 	display: none;
 	position: absolute;
@@ -252,6 +275,8 @@ input {
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
 }
+
+
 
 .todo-list li .destroy:hover {
 	color: #af5b5e;
