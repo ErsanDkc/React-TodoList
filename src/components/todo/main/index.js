@@ -36,7 +36,7 @@ function Main({ todos, setTodos }) {
       : todos.filter((item) => {
           if (filter === "Active") {
             return item.completed === false;
-          } else if (filter === "Completed") {
+          } else {
             return item.completed === true;
           }
         });
